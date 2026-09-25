@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+env/
+
+# Environment and Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+.turbo/
+.parcel-cache/
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Large Archives
+*.zip
+*.tar.gz
+*.tar.bz2
+
+# Local test outputs & temporary audio
+data/audio/*
+!data/audio/.gitkeep
+
+# Runtime vector DB (chroma.sqlite3 is ~44MB — GitHub web upload rejects >25MB).
+# Directories are kept via .gitkeep. Local files on your machine are not deleted.
+ai-service/data/chroma/**
+!ai-service/data/chroma/.gitkeep
+ai-service/data/chromadb/**
+!ai-service/data/chromadb/.gitkeep
+ai-service/data/uploads/**
+!ai-service/data/uploads/.gitkeep
+ai-service/data/artifacts/**
+!ai-service/data/artifacts/.gitkeep
+
+# HuggingFace / torch caches if created locally
+.cache/
+ai-service/.cache/

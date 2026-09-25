@@ -1,0 +1,4 @@
+# Root install for Railway / Docker (API facade + AI engine)
+-r ai-service/requirements.txt
+python-dotenv>=1.0,<2
+gunicorn>=22,<24

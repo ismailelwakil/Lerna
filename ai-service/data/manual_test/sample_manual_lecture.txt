@@ -1,0 +1,13 @@
+Course: CS101 Introduction to Algorithms & Systems
+Topic: Divide-and-Conquer Search and Computational Limits
+
+Core Theoretical Foundations:
+1. Binary Search is a fundamental search algorithm operating on a sorted indexed array.
+2. In each iteration, the algorithm compares the target key against the median element of the current subarray.
+3. If the target equals the median element, its index is returned immediately.
+4. If the target is smaller, the search domain is restricted to the lower half; if larger, to the upper half.
+5. The worst-case time complexity is O(log n), and space complexity is O(1) for iterative implementations.
+6. The indispensable precondition before binary search can be applied is that the data sequence must be strictly sorted.
+
+Synthetic Manual Verification Marker:
+UniqueManualProofToken#9824: In the Edunation experimental lab evaluation, the cryogenic array benchmark achieved an exact latency of 4.81 microseconds across ten million simulated lookups.

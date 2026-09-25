@@ -1,0 +1,701 @@
+{
+  "student": {
+    "student_id": "student-001",
+    "name": "Demo Student",
+    "course": "Artificial Intelligence",
+    "preferred_language": "en",
+    "learning_preference": "step-by-step"
+  },
+  "concept_mastery": {
+    "Binary search": 1.0,
+    "binary search trace": 1.0,
+    "worst-case complexity": 0.0,
+    "space complexity": 0.0
+  },
+  "weak_concepts": [
+    "worst-case complexity",
+    "space complexity"
+  ],
+  "prerequisite_gaps": [],
+  "misconceptions": [],
+  "resolved_misconceptions": [],
+  "strengths": [
+    "Binary search",
+    "binary search trace"
+  ],
+  "unknown_concepts": [
+    "worst-case complexity"
+  ],
+  "assessment_history": [
+    {
+      "assessment_id": "05711241-8f8f-457f-84a7-33bdfb957e4c",
+      "score": 0.5,
+      "concept_mastery": {
+        "Binary search": 1.0,
+        "binary search trace": 1.0,
+        "worst-case complexity": 0.0,
+        "space complexity": 0.0
+      },
+      "weak_concepts": [
+        "worst-case complexity",
+        "space complexity"
+      ],
+      "prerequisite_gaps": [
+        "space complexity"
+      ],
+      "misconceptions": [],
+      "strengths": [
+        "Binary search",
+        "binary search trace"
+      ],
+      "recommendations": [
+        "Learn or review worst-case complexity from the fundamentals, then complete a short reassessment.",
+        "Review the prerequisite knowledge for space complexity before continuing."
+      ],
+      "unknown_concepts": [
+        "worst-case complexity"
+      ],
+      "source_type": "student_upload",
+      "source_title": "sample_manual_lecture.txt"
+    }
+  ],
+  "learning_history": [
+    {
+      "timestamp": "2026-09-23T03:48:08.104484+00:00",
+      "topic": "Overfitting",
+      "query": "Explain overfitting in machine learning to a first-year university student. Keep the explanation simple and give one example.",
+      "normalized_english_query": "Explain overfitting in machine learning to a first-year university student. Keep the explanation simple and give one example.",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T03:49:01.457542+00:00",
+      "topic": "Overfitting",
+      "query": "Explain overfitting in machine learning to a first-year university student. Keep the explanation simple and give one example.",
+      "normalized_english_query": "Explain overfitting in machine learning to a first-year university student. Keep the explanation simple and give one example.",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T03:49:38.925752+00:00",
+      "topic": "Overfitting",
+      "query": "Explain overfitting in machine learning to a first-year university student. Keep the explanation simple and give one example.",
+      "normalized_english_query": "Explain overfitting in machine learning to a first-year university student. Keep the explanation simple and give one example.",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T03:49:43.743075+00:00",
+      "topic": "analogy-based explanation",
+      "query": "Can you explain that again using a simple real-world analogy?",
+      "normalized_english_query": "Can you explain that again using a simple real-world analogy?",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T03:49:46.642310+00:00",
+      "topic": "Machine Learning",
+      "query": "Give me three short signs that a machine learning model may be overfitting.",
+      "normalized_english_query": "Give me three short signs that a machine learning model may be overfitting.",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T03:50:15.316235+00:00",
+      "topic": "Overfitting",
+      "query": "Explain overfitting in machine learning to a first-year university student. Keep the explanation simple and give one example.",
+      "normalized_english_query": "Explain overfitting in machine learning to a first-year university student. Keep the explanation simple and give one example.",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T07:25:08.987407+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "Explain in two simple points why binary search requires sorted data.",
+      "normalized_english_query": "Explain in two simple points why binary search requires sorted data.",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T07:26:04.534581+00:00",
+      "topic": "algorithms and data structures",
+      "query": "Explain in two simple points why binary search requires sorted data.",
+      "normalized_english_query": "Explain in two simple points why binary search requires sorted data.",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T07:27:02.562323+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "Explain in two simple points why binary search requires sorted data.",
+      "normalized_english_query": "Explain in two simple points why binary search requires sorted data.",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T07:28:00.343775+00:00",
+      "topic": "algorithms",
+      "query": "Dangane da bayanan laccar, wane muhimmin sharadi ne dole a cika kafin a yi amfani da Binary Search? Amsa da jimla ɗaya.",
+      "normalized_english_query": "According to the lecture notes, what important condition must be met before Binary Search can be used? Answer in a single sentence.",
+      "language": "ha",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T07:29:27.982319+00:00",
+      "topic": "algorithms",
+      "query": "Ngokwamaphuzu esifundo, yisiphi isimo esibalulekile okufanele sigcwaliseke ngaphambi kokusebenzisa i-Binary Search? Phendula ngomusho owodwa.",
+      "normalized_english_query": "According to the lecture points, what is the essential condition that must be satisfied before using Binary Search? Answer in one sentence.",
+      "language": "zu",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T07:53:26.042203+00:00",
+      "topic": "algorithms and data structures",
+      "query": "What is binary search according to the lecture notes?",
+      "normalized_english_query": "What is binary search according to the lecture notes?",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T07:55:55.344434+00:00",
+      "topic": "algorithms and data structures",
+      "query": "What condition must be satisfied before using Binary Search?",
+      "normalized_english_query": "What condition must be satisfied before using Binary Search?",
+      "language": "fr",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T07:58:02.738726+00:00",
+      "topic": "algorithms",
+      "query": "What condition must be satisfied before using Binary Search?\n\nAvant que la recherche dichotomique puisse être appliquée, la condition préalable indispensable qui doit être satisfaite est que la séquence de données doit être strictement triée [1].\n\nSources used\n\n[1] sample_manual_lecture.txt · page 1\nCourse: CS101 Introduction to Algorithms & Systems Topic: Divide-and-Conquer Search and Computational Limits Core Theoretical Foundations: 1. Binary Search is a fundamental search algorithm operating on a sorted indexed array. 2. In each iteration, the algorithm compares the target key against the median element of the current subarray. 3. If the target equals the median element, its index is returned immediately. 4. If the target is smaller, the search domain is restricted to the lower half; if larger, to the upper half. 5. The worst-case time complexity is O(log n), and space complexity is O(1) for iterative implementations. 6. The indispen\n",
+      "normalized_english_query": "What condition must be satisfied before using Binary Search",
+      "language": "fr",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T07:58:48.826180+00:00",
+      "topic": "algorithms and data structures",
+      "query": "What condition must be satisfied before using Binary Search?",
+      "normalized_english_query": "What condition must be satisfied before using Binary Search?",
+      "language": "fr",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T08:01:31.847716+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "What condition must be satisfied before using Binary Search?",
+      "normalized_english_query": "What condition must be satisfied before using Binary Search?",
+      "language": "fr",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T08:13:37.945906+00:00",
+      "topic": "binary search",
+      "query": "What is binary search according to the lecture notes?",
+      "normalized_english_query": "What is binary search according to the lecture notes?",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T08:15:33.509418+00:00",
+      "topic": "algorithms and data structures",
+      "query": "Explain in two simple points why binary search requires sorted data.",
+      "normalized_english_query": "Explain in two simple points why binary search requires sorted data.",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T08:15:48.599334+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "Explain in two simple points why binary search requires sorted data.",
+      "normalized_english_query": "Explain in two simple points why binary search requires sorted data.",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T08:16:47.684507+00:00",
+      "topic": "algorithms and data structures",
+      "query": "Explain in two simple points why binary search requires sorted data.",
+      "normalized_english_query": "Explain in two simple points why binary search requires sorted data.",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T08:17:59.991080+00:00",
+      "topic": "algorithms",
+      "query": "Dangane da bayanan laccar, wane muhimmin sharadi ne dole a cika kafin a yi amfani da Binary Search? Amsa da jimla ɗaya.",
+      "normalized_english_query": "According to the lecture notes, what important condition must be met before Binary Search can be used? Answer in a single sentence.",
+      "language": "ha",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T08:18:56.155281+00:00",
+      "topic": "algorithms",
+      "query": "Ngokwamaphuzu esifundo, yisiphi isimo esibalulekile okufanele sigcwaliseke ngaphambi kokusebenzisa i-Binary Search? Phendula ngomusho owodwa.",
+      "normalized_english_query": "According to the course notes, what critical condition must be satisfied before using Binary Search? Answer in one sentence.",
+      "language": "zu",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T08:51:19.958292+00:00",
+      "topic": "Algorithms",
+      "query": "What condition must be satisfied before using Binary Search?",
+      "normalized_english_query": "What condition must be satisfied before using Binary Search?",
+      "language": "fr",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T09:06:00.566677+00:00",
+      "topic": "algorithms and data structures",
+      "query": "What condition must be satisfied before using Binary Search?",
+      "normalized_english_query": "What condition must be satisfied before using Binary Search?",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T09:06:40.565250+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "Explain that again using a simple real-world analogy.",
+      "normalized_english_query": "Explain the required condition for Binary Search using a simple real-world analogy.",
+      "language": "yo",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T09:24:37.939149+00:00",
+      "topic": "algorithms",
+      "query": "What condition must be satisfied before using Binary Search?",
+      "normalized_english_query": "What condition must be satisfied before using Binary Search?",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T09:24:54.040209+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "Explain that again using a simple real-world analogy.",
+      "normalized_english_query": "Explain the required condition for Binary Search using a simple real-world analogy.",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T09:25:49.597526+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "Explique en une phrase la condition indispensable pour utiliser la recherche binaire.",
+      "normalized_english_query": "Explain in one sentence the essential condition for using binary search.",
+      "language": "fr",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T09:26:11.275259+00:00",
+      "topic": "algorithms",
+      "query": "ودلوقتي اشرح نفس الشرط بالعربي في جملة واحدة.",
+      "normalized_english_query": "Explain the required condition for Binary Search in one sentence.",
+      "language": "ar",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T10:22:58.893624+00:00",
+      "topic": "algorithms",
+      "query": "What condition must be satisfied before using Binary Search?",
+      "normalized_english_query": "What condition must be satisfied before using Binary Search?",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T10:52:27.775294+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "What is the time complexity of binary search?",
+      "normalized_english_query": "What is the time complexity of binary search?",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T10:52:56.256270+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "What is the time complexity of binary search?",
+      "normalized_english_query": "What is the time complexity of binary search?",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T10:53:26.490467+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "What is the time complexity of binary search?",
+      "normalized_english_query": "What is the time complexity of binary search?",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T10:53:50.489306+00:00",
+      "topic": "algorithms",
+      "query": "According to an authoritative source, what is the worst-case time complexity of binary search?",
+      "normalized_english_query": "According to an authoritative source, what is the worst-case time complexity of binary search?",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable"
+    },
+    {
+      "timestamp": "2026-09-23T11:13:14.971670+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "What is the worst-case time complexity of binary search?",
+      "normalized_english_query": "What is the worst-case time complexity of binary search?",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable:HTTPStatusError"
+    },
+    {
+      "timestamp": "2026-09-23T11:14:04.915909+00:00",
+      "topic": "algorithms",
+      "query": "ما هو التعقيد الزمني في أسوأ حالة لخوارزمية Binary Search؟",
+      "normalized_english_query": "What is the worst-case time complexity of the Binary Search algorithm?",
+      "language": "ar",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable:HTTPStatusError"
+    },
+    {
+      "timestamp": "2026-09-23T11:24:12.942928+00:00",
+      "topic": "algorithms and data structures",
+      "query": "What is binary search algorithm?",
+      "normalized_english_query": "What is binary search algorithm?",
+      "language": "en",
+      "confidence": 0.0,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "unavailable:HTTPStatusError"
+    },
+    {
+      "timestamp": "2026-09-23T11:25:15.227214+00:00",
+      "topic": "algorithms and data structures",
+      "query": "What is the worst-case time complexity of binary search?",
+      "normalized_english_query": "What is the worst-case time complexity of binary search?",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T11:25:40.036391+00:00",
+      "topic": "algorithms",
+      "query": "What is the worst-case time complexity of binary search?",
+      "normalized_english_query": "What is the worst-case time complexity of binary search?",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    },
+    {
+      "timestamp": "2026-09-23T12:51:50.199461+00:00",
+      "topic": "algorithms_and_data_structures",
+      "query": "What is the worst-case time complexity of binary search?",
+      "normalized_english_query": "What is the worst-case time complexity of binary search?",
+      "language": "en",
+      "confidence": 0.9400000000000001,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "ready"
+    },
+    {
+      "timestamp": "2026-09-23T12:58:24.145445+00:00",
+      "topic": "algorithms_and_data_structures",
+      "query": "What is the worst-case time complexity of Binary Search, and why?",
+      "normalized_english_query": "What is the worst-case time complexity of Binary Search, and why?",
+      "language": "en",
+      "confidence": 0.92,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "ready"
+    },
+    {
+      "timestamp": "2026-09-23T13:06:40.665490+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "ما هو التعقيد الزمني في أسوأ حالة لخوارزمية Binary Search، ولماذا؟",
+      "normalized_english_query": "What is the worst-case time complexity of the Binary Search algorithm, and why?",
+      "language": "ar",
+      "confidence": 0.98,
+      "knowledge_source": "trusted_external",
+      "trusted_search_state": "ready"
+    },
+    {
+      "timestamp": "2026-09-23T13:09:46.936574+00:00",
+      "topic": "Algorithms and Data Structures",
+      "query": "What is the worst-case time complexity of Binary Search, and why?",
+      "normalized_english_query": "What is the worst-case time complexity of Binary Search, and why?",
+      "language": "en",
+      "confidence": 1.0,
+      "knowledge_source": "uploaded_material",
+      "trusted_search_state": "not_required"
+    }
+  ],
+  "recent_topics": [
+    "algorithms",
+    "Algorithms and Data Structures",
+    "algorithms",
+    "algorithms and data structures",
+    "algorithms and data structures",
+    "algorithms",
+    "algorithms_and_data_structures",
+    "algorithms_and_data_structures",
+    "Algorithms and Data Structures",
+    "Algorithms and Data Structures"
+  ],
+  "generated_resources": [],
+  "review_queue": [
+    {
+      "concept": "worst-case complexity",
+      "due_date": "2026-09-23T18:19:53.776459+00:00",
+      "interval_days": 1.0,
+      "repetition": 0,
+      "ease_factor": 2.5,
+      "last_reviewed": null,
+      "mastery": 0.0
+    },
+    {
+      "concept": "space complexity",
+      "due_date": "2026-09-23T18:19:53.776459+00:00",
+      "interval_days": 1.0,
+      "repetition": 0,
+      "ease_factor": 2.5,
+      "last_reviewed": null,
+      "mastery": 0.0
+    },
+    {
+      "concept": "binary search trace",
+      "due_date": "2026-09-27T18:19:53.776459+00:00",
+      "interval_days": 4.0,
+      "repetition": 0,
+      "ease_factor": 2.5,
+      "last_reviewed": null,
+      "mastery": 1.0
+    },
+    {
+      "concept": "Binary search",
+      "due_date": "2026-09-27T18:19:53.776459+00:00",
+      "interval_days": 4.0,
+      "repetition": 0,
+      "ease_factor": 2.5,
+      "last_reviewed": null,
+      "mastery": 1.0
+    }
+  ],
+  "study_plan": [
+    {
+      "title": "Build Foundation: worst-case complexity",
+      "concept": "worst-case complexity",
+      "priority": "high",
+      "reason": "Missing knowledge was identified from assessment evidence; foundational learning is required.",
+      "recommended_actions": [
+        "Ask Tutor for a step-by-step introduction to worst-case complexity",
+        "Generate a Study Guide on worst-case complexity",
+        "Complete a short check on worst-case complexity once fundamentals are established"
+      ],
+      "completed": false
+    },
+    {
+      "title": "Reinforce Weak Concept: space complexity",
+      "concept": "space complexity",
+      "priority": "medium",
+      "reason": "Current mastery is 0%, below target threshold of 70%.",
+      "recommended_actions": [
+        "Generate Flashcards and practice quiz on space complexity",
+        "Review worked examples with the Tutor",
+        "Complete practice problem set"
+      ],
+      "completed": false
+    }
+  ],
+  "conversation_history": [
+    {
+      "role": "user",
+      "text": "According to an authoritative source, what is the worst-case time complexity of binary search?",
+      "timestamp": "2026-09-23T10:53:50.489345+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "Trusted external search is currently unavailable, so I cannot provide a source-grounded answer without relying on model memory.",
+      "timestamp": "2026-09-23T10:53:50.489349+00:00"
+    },
+    {
+      "role": "user",
+      "text": "What is the worst-case time complexity of binary search?",
+      "timestamp": "2026-09-23T11:13:14.971715+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "Trusted external search is currently unavailable, so I cannot provide a source-grounded answer without relying on model memory.",
+      "timestamp": "2026-09-23T11:13:14.971719+00:00"
+    },
+    {
+      "role": "user",
+      "text": "ما هو التعقيد الزمني في أسوأ حالة لخوارزمية Binary Search؟",
+      "timestamp": "2026-09-23T11:14:04.915997+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "البحث الخارجي الموثوق غير متاح حالياً، لذا لا يمكنني تقديم إجابة مبنية على مصادر موثوقة دون الاعتماد على ذاكرة النموذج.",
+      "timestamp": "2026-09-23T11:14:04.916006+00:00"
+    },
+    {
+      "role": "user",
+      "text": "What is binary search algorithm?",
+      "timestamp": "2026-09-23T11:24:12.942977+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "Trusted external search is currently unavailable, so I cannot provide a source-grounded answer without relying on model memory.",
+      "timestamp": "2026-09-23T11:24:12.942982+00:00"
+    },
+    {
+      "role": "user",
+      "text": "What is the worst-case time complexity of binary search?",
+      "timestamp": "2026-09-23T11:25:15.227244+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "The worst-case time complexity of binary search is $O(\\log n)$ [1]. \n\nTo understand how this complexity arises step-by-step, we can look at how the algorithm operates on a sorted indexed array [1]:\n\n1. **Initial Precondition:** The data sequence must be strictly sorted before binary search can be applied [1].\n2. **Median Comparison:** In each iteration, the algorithm compares the target key against the median element of the current subarray [1].\n3. **Halving the Search Domain:** \n   - If the target equals the median element, its index is returned immediately [1].\n   - If the target is smaller, the search domain is restricted to the lower half [1].\n   - If the target is larger, the search domain is restricted to the upper half [1].\n4. **Growth Rate:** Because the search domain is divided in half with each iteration, the maximum number of steps required to narrow down the search space to a single element grows logarithmically with the size of the input $n$, resulting in an $O(\\log n)$ worst-case time complexity [1]. (Additionally, the space complexity for iterative implementations is $O(1)$ [1].)",
+      "timestamp": "2026-09-23T11:25:15.227247+00:00"
+    },
+    {
+      "role": "user",
+      "text": "What is the worst-case time complexity of binary search?",
+      "timestamp": "2026-09-23T11:25:40.036428+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "The worst-case time complexity of binary search is $O(\\log n)$ [1]. \n\nTo understand how this complexity arises step-by-step, we can look at how the algorithm operates on a sorted indexed array of size $n$ [1]:\n\n1. **Prerequisite Check:** Binary search requires the data sequence to be strictly sorted before it can be applied [1].\n2. **Median Comparison:** In each iteration, the algorithm compares the target key against the median element of the current subarray [1].\n3. **Halving the Search Domain:** \n   - If the target equals the median element, its index is returned immediately [1].\n   - If the target is smaller, the search domain is restricted to the lower half [1].\n   - If the target is larger, the search domain is restricted to the upper half [1].\n4. **Logarithmic Scaling:** Because the search domain is halved with each iteration, the maximum number of steps required to narrow down the search space to a single element grows logarithmically with $n$, resulting in an $O(\\log n)$ worst-case time complexity [1]. (Additionally, the space complexity for iterative implementations is $O(1)$) [1].",
+      "timestamp": "2026-09-23T11:25:40.036431+00:00"
+    },
+    {
+      "role": "user",
+      "text": "What is the worst-case time complexity of binary search?",
+      "timestamp": "2026-09-23T12:51:50.199511+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "To understand the worst-case time complexity of binary search step by step, we can break down how the search space shrinks during execution:\n\n1. **Initial State:** \n   We begin with a sorted list of length $n$ [2]. \n\n2. **First Iteration:** \n   The algorithm checks the middle element. If the target is not found, the remaining search space is cut roughly in half, leaving a sublist of length $\\frac{n}{2}$ [2].\n\n3. **Subsequent Iterations:** \n   After the second iteration, the sublist length is reduced to $\\frac{n}{4}$ (which can be written as $\\frac{n}{2^2}$) [2]. \n\n4. **Generalizing to $k$ Iterations:** \n   Following this pattern, after $k$ iterations, the remaining sublist length is reduced to $\\frac{n}{2^k}$ [2].\n\nThe worst-case scenario occurs when the target is never found (or is isolated at the very end of the search process) [2]. In the provided pseudocode implementation, the total time requirement in the worst case is expressed as $T_B(n) = c_1 + c_2(1 + \\lg n)$ [2], which gives a logarithmic time complexity.\n\nConflict notice: retrieved sources contain contradictory claims; inspect the cited evidence before relying on either claim.",
+      "timestamp": "2026-09-23T12:51:50.199516+00:00"
+    },
+    {
+      "role": "user",
+      "text": "What is the worst-case time complexity of Binary Search, and why?",
+      "timestamp": "2026-09-23T12:58:24.145488+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "The worst-case time complexity of Binary Search is $O(\\log n)$ (expressed in the notes as $T_B(n) = c_1 + c_2(1 + \\lg n)$) [1]. \n\nHere is the step-by-step breakdown of why this worst-case time complexity occurs:\n\n1. **The Worst-Case Scenario:** The worst-case scenario happens when the target element is never found in the list [1]. \n2. **Initial Search Space:** You begin with a sorted list of length $n$ [1].\n3. **Halving the List:** During each iteration of the algorithm, the search interval is divided by comparing the target value to the middle element and traversing only the expected interval [3]. \n4. **Sublist Length Progression:** \n   - Initially, the length of the list is $n$ [1].\n   - After the first iteration, the remaining sublist length is reduced to $\\frac{n}{2}$ [1].\n   - After the second iteration, the sublist length is $\\frac{n}{4}$ (or $\\frac{n}{2^2}$) [1].\n5. **Generalizing to $k$ Iterations:** Following this pattern, after $k$ iterations, the remaining sublist length is reduced to $\\frac{n}{2^k}$ [1]. \n\nBecause the algorithm repeatedly divides the search space in half until the sublist cannot be further divided, the number of steps required to narrow the list down to a single element is proportional to $\\log_2 n$, resulting in a logarithmic worst-case time complexity [1, 3].",
+      "timestamp": "2026-09-23T12:58:24.145492+00:00"
+    },
+    {
+      "role": "user",
+      "text": "ما هو التعقيد الزمني في أسوأ حالة لخوارزمية Binary Search، ولماذا؟",
+      "timestamp": "2026-09-23T13:06:40.665516+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "فهم التعقيد الزمني في أسوأ الحالات لخوارزمية البحث الثنائي (Binary Search)، يمكننا تحليل كيفية معالجة الخوارزمية لقائمة مرتبة خطوة بخطوة [4, 5]:\n\n### الخطوة 1: الحالة الأولية\nنبدأ بقائمة مرتبة طولها $n$ [4]. في كل تكرار، يفحص البحث الثنائي العنصر الأوسط الموجود في الموقع $C = \\lfloor(L+R)/2\\rfloor$ [4]. \n\n### الخطوة 2: تقليص مساحة البحث\nإذا لم يتم العثور على الهدف في الفهرس الأوسط، فإن الخوارزمية تحذف نصف مساحة البحث المتبقية وتكرر العملية على النصف الآخر [4, 5]:\n* مبدئياً، طول القائمة هو $n$ [4].\n* بعد التكرار الأول، ينخفض طول القائمة الفرعية إلى $\\frac{n}{2}$ [4].\n* بعد التكرار الثاني، ينخفض طول القائمة الفرعية إلى $\\frac{n}{4}$ (أو $\\frac{n}{2^2}$) [4].\n* اتباعاً لهذا النمط، بعد $k$ من التكرارات، يكون طول القائمة الفرعية المتبقية هو $\\frac{n}{2^k}$ [4].\n\n### الخطوة 3: تحديد الحد الأقصى لعدد التكرارات\nيحدث سيناريو أسوأ الحالات عندما لا يُعثر على الهدف أبداً (أو عندما يكون موجوداً في القائمة الفرعية ذات العنصر الواحد المتبقية النهائية قبل أن ينتهي البحث) [4, 5]. \n\nتستمر حلقة التكرار (while loop) في التكرار حتى ينخفض طول القائمة الفرعية إلى $1$ [5]:\n$$\\frac{n}{2^k} = 1$$\n$$2^k = n$$\n\nبأخذ لوغاريتم كلا الطرفين نحصل على عدد التكرارات:\n$$k = \\lg n$$\n\nمع أخذ تكرار المقارنة الأخير في الاعتبار حيث يفشل الشرط، تعمل حلقة التكرار $1 + \\lg n$ من المرات [5].\n\n### الخطوة 4: التعقيد الزمني الكلي\nلأن كل تكرار يُجري كمية ثابتة من العمل، يُعبَّر عن متطلبات الوقت الكلي في سيناريو أسوأ الحالات كالتالي:\n$$T(n) = c_1 + c_2(1 + \\lg n) + c_3 = \\Theta(\\lg n)$$\n\nبناءً على ذلك، فإن التعقيد الزمني في أسوأ الحالات لخوارزمية البحث الثنائي هو **$\\Theta(\\lg n)$** [5].",
+      "timestamp": "2026-09-23T13:06:40.665520+00:00"
+    },
+    {
+      "role": "user",
+      "text": "What is the worst-case time complexity of Binary Search, and why?",
+      "timestamp": "2026-09-23T13:09:46.936584+00:00"
+    },
+    {
+      "role": "assistant",
+      "text": "The worst-case time complexity of Binary Search is $O(\\log n)$ [1]. \n\nHere is the step-by-step breakdown of why this complexity occurs:\n\n1. **Prerequisite Structure:** Binary Search operates on a sorted indexed array [1]. \n2. **Iterative Division:** In each iteration of the algorithm, the target key is compared against the median element of the current subarray [1].\n3. **Halving the Search Domain:** Depending on that comparison, the search space is divided: if the target is smaller, the domain is restricted to the lower half; if it is larger, the domain is restricted to the upper half [1].\n4. **Logarithmic Bound:** Because the search domain is divided in half with each step, the maximum number of iterations required to narrow down the search space to a single element is proportional to the base-2 logarithm of the array's size ($n$). Therefore, the worst-case time complexity is $O(\\log n)$ [1].",
+      "timestamp": "2026-09-23T13:09:46.936587+00:00"
+    }
+  ],
+  "learning_goal": null,
+  "concept_confidence": {
+    "Binary search": 0.4,
+    "binary search trace": 0.4,
+    "worst-case complexity": 0.4,
+    "space complexity": 0.4
+  },
+  "concept_exposure_count": {
+    "Binary search": 1,
+    "binary search trace": 1,
+    "worst-case complexity": 1,
+    "space complexity": 1
+  },
+  "concept_evidence_count": {
+    "Binary search": 1,
+    "binary search trace": 1,
+    "worst-case complexity": 1,
+    "space complexity": 1
+  },
+  "last_assessed_at": {
+    "Binary search": "2026-09-23T18:19:53.774809+00:00",
+    "binary search trace": "2026-09-23T18:19:53.774809+00:00",
+    "worst-case complexity": "2026-09-23T18:19:53.774809+00:00",
+    "space complexity": "2026-09-23T18:19:53.774809+00:00"
+  },
+  "performance_trend": [
+    0.5
+  ]
+}

@@ -1,0 +1,25 @@
+# EDUnation Content Creation Module — production stack
+# cp .env.example .env → fill real keys → docker compose up -d
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    ports: ["8000:8000"]
+    env_file: .env
+    environment:
+      CONTENT_ENV: production
+    volumes:
+      - module_data:/app/data
+
+  # Optional: local Qdrant instead of Qdrant Cloud (set QDRANT_URL
+  # to http://qdrant:6333 and drop QDRANT_API_KEY)
+  qdrant:
+    image: qdrant/qdrant:latest
+    restart: unless-stopped
+    profiles: ["local-qdrant"]
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  module_data:
+  qdrant_data:

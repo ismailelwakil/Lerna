@@ -1,0 +1,7 @@
+frontend/node_modules
+**/__pycache__
+.venv
+.git
+ai-service/source_modules
+ai-service/tests
+*.zip

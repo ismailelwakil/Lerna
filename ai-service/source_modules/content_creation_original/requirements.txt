@@ -1,0 +1,19 @@
+# EDUnation Content Creation Module
+fastapi>=0.110
+uvicorn[standard]>=0.27
+httpx>=0.26
+SQLAlchemy>=2.0
+pydantic>=2.6
+python-multipart>=0.0.9
+pypdf>=4.0
+python-docx>=1.1
+python-pptx>=0.6.23
+
+# tests
+pytest>=8.0
+psycopg2-binary>=2.9
+
+# NOTE (dependency hygiene): moviepy is NOT a dependency of this module.
+# If you manually `pip install moviepy` (2.x pins pillow<12) alongside
+# Pillow 12, `pip check` will report a conflict. Uninstall moviepy, or pin
+# pillow<12 yourself — this project requires neither.

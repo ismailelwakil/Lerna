@@ -1,0 +1,3 @@
+from src.orchestration.factory import build_system
+def test_upload_index_retrieve(tmp_path):
+ ai=build_system(str(tmp_path),test_mode=True); ai.create_or_load_student('s','S'); f=tmp_path/'x.md'; f.write_text('CNN convolution filters pooling',encoding='utf-8'); m=ai.upload_document('s',f,'x.md'); ev,_=ai.retrieval.retrieve('convolution','s',[m.document_id],'CNN'); assert m.indexed and m.chunks>0 and ev and ev[0].authority=='student_upload'

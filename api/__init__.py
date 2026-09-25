@@ -1,0 +1,3 @@
+"""
+Academic OS API Package
+"""

@@ -1,0 +1,2326 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Academic OS Integration API",
+    "description": "Thin API Integration Facade connecting the React Frontend to the Academic OS Python Learning Intelligence Subsystem.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Get Health",
+        "description": "Health check for AI subsystems, LLM providers, search, and storage.",
+        "operationId": "get_health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/capabilities": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Get Capabilities",
+        "description": "Exposes system capabilities, supported content types, and supported languages.",
+        "operationId": "get_capabilities_capabilities_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CapabilitiesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{student_id}/profile": {
+      "get": {
+        "tags": [
+          "Student Profile & Learning"
+        ],
+        "summary": "Get Profile",
+        "description": "Retrieve the current student profile and concept mastery.",
+        "operationId": "get_profile_students__student_id__profile_get",
+        "parameters": [
+          {
+            "name": "student_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Student Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentProfileData"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{student_id}/preferences": {
+      "patch": {
+        "tags": [
+          "Student Profile & Learning"
+        ],
+        "summary": "Update Preferences",
+        "description": "Update student learning preferences, course, or preferred language.",
+        "operationId": "update_preferences_students__student_id__preferences_patch",
+        "parameters": [
+          {
+            "name": "student_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Student Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudentPreferencesUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudentProfileData"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{student_id}/learning": {
+      "get": {
+        "tags": [
+          "Student Profile & Learning"
+        ],
+        "summary": "Get Learning State",
+        "description": "Get aggregated learning state including Next Best Action,\npersonalized study plan, spaced repetition queue, and activity history.",
+        "operationId": "get_learning_state_students__student_id__learning_get",
+        "parameters": [
+          {
+            "name": "student_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Student Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LearningStateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tutor/chat": {
+      "post": {
+        "tags": [
+          "AI Tutor"
+        ],
+        "summary": "Chat With Tutor",
+        "description": "Primary conversational learning endpoint.\n- If document_ids is null or empty: runs Trusted External Discovery (Mode B).\n- If document_ids has items: runs selected course material retrieval (Mode A).\n- Preserves hierarchical personalization, citations, and evidence limitations.",
+        "operationId": "chat_with_tutor_tutor_chat_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "name": "X-Student-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Student-Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TutorChatRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TutorChatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tutor/voice": {
+      "post": {
+        "tags": [
+          "AI Tutor"
+        ],
+        "summary": "Voice Question",
+        "description": "Voice Question integration boundary.\nAccepts uploaded audio bytes. If audio processing is active, routes to ask_voice_tutor;\notherwise returns a clear safe message with capability status.",
+        "operationId": "voice_question_tutor_voice_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "name": "X-Student-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Student-Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_voice_question_tutor_voice_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TutorChatResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/materials": {
+      "get": {
+        "tags": [
+          "Course Materials"
+        ],
+        "summary": "List Materials",
+        "description": "List all course materials uploaded for the student.",
+        "operationId": "list_materials_materials_get",
+        "parameters": [
+          {
+            "name": "student_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Student Id"
+            }
+          },
+          {
+            "name": "course",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Course"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "name": "X-Student-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Student-Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaterialsListResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/materials/upload": {
+      "post": {
+        "tags": [
+          "Course Materials"
+        ],
+        "summary": "Upload Material",
+        "description": "Upload and index a course document (.txt, .md, .pdf, .docx, .pptx).\nExtracts text, generates embeddings, and indexes chunks into Chroma vector store.",
+        "operationId": "upload_material_materials_upload_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "name": "X-Student-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Student-Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_upload_material_materials_upload_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaterialUploadResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/study-tools/generate": {
+      "post": {
+        "tags": [
+          "Study Tools"
+        ],
+        "summary": "Generate Study Tools",
+        "description": "Generate one or multiple personalized study tools from the 15 supported kinds:\n[explanation, summary, notes, study_guide, flashcards, quiz, exam, practice,\n code, coding_exercise, diagram, presentation, analogy, comparison, question_bank].\n- Grounded strictly in uploaded materials or trusted external evidence.\n- Zero model-memory fallback for unavailable evidence.\n- Supports SVG preview + PPTX download artifacts.",
+        "operationId": "generate_study_tools_study_tools_generate_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "name": "X-Student-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Student-Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StudyToolsGenerateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StudyToolsGenerateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assessments/generate": {
+      "post": {
+        "tags": [
+          "Assessments & Knowledge Checks"
+        ],
+        "summary": "Generate Assessment",
+        "description": "Generate an assessment / diagnostic knowledge check.\n- Grounded in uploaded material or trusted external evidence.\n- Questions contain MCQs and short answers with an explicit 'I don't know' option.\n- Stored in server cache until submitted.",
+        "operationId": "generate_assessment_assessments_generate_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "name": "X-Student-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Student-Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssessmentGenerateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssessmentGenerateResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assessments/{assessment_id}/submit": {
+      "post": {
+        "tags": [
+          "Assessments & Knowledge Checks"
+        ],
+        "summary": "Submit Assessment",
+        "description": "Submit completed answers for evaluation.\n- Backend evaluates correctness and updates student mastery.\n- React does NOT evaluate or update mastery client-side.",
+        "operationId": "submit_assessment_assessments__assessment_id__submit_post",
+        "parameters": [
+          {
+            "name": "assessment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Assessment Id"
+            }
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "name": "X-Student-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Student-Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssessmentSubmitRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssessmentSubmitResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/spaced-repetition/review": {
+      "post": {
+        "tags": [
+          "Spaced Repetition"
+        ],
+        "summary": "Record Review",
+        "description": "Record student spaced repetition review feedback ('Remembered' or 'Forgot').\nUpdates Leitner/SM-2 intervals and profile persistence server-side.",
+        "operationId": "record_review_spaced_repetition_review_post",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Authorization"
+            }
+          },
+          {
+            "name": "X-Student-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Student-Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpacedReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpacedReviewResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/artifacts/{artifact_id}/download": {
+      "get": {
+        "tags": [
+          "Artifacts"
+        ],
+        "summary": "Download Artifact",
+        "description": "Download a generated artifact (e.g., SVG diagram, PPTX presentation).\nServes with proper MIME types and headers.",
+        "operationId": "download_artifact_artifacts__artifact_id__download_get",
+        "parameters": [
+          {
+            "name": "artifact_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Artifact Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "Root",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AssessmentGenerateRequest": {
+        "properties": {
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Student Id"
+          },
+          "topic": {
+            "type": "string",
+            "title": "Topic"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "default": "en"
+          },
+          "document_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "topic"
+        ],
+        "title": "AssessmentGenerateRequest"
+      },
+      "AssessmentGenerateResponse": {
+        "properties": {
+          "assessment_id": {
+            "type": "string",
+            "title": "Assessment Id"
+          },
+          "topic": {
+            "type": "string",
+            "title": "Topic"
+          },
+          "questions": {
+            "items": {
+              "$ref": "#/components/schemas/AssessmentQuestionModel"
+            },
+            "type": "array",
+            "title": "Questions"
+          },
+          "source_type": {
+            "type": "string",
+            "title": "Source Type"
+          },
+          "source_title": {
+            "type": "string",
+            "title": "Source Title"
+          }
+        },
+        "type": "object",
+        "required": [
+          "assessment_id",
+          "topic",
+          "questions",
+          "source_type",
+          "source_title"
+        ],
+        "title": "AssessmentGenerateResponse"
+      },
+      "AssessmentQuestionModel": {
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "title": "Question Id"
+          },
+          "concept": {
+            "type": "string",
+            "title": "Concept"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt"
+          },
+          "options": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Options"
+          },
+          "difficulty": {
+            "type": "string",
+            "title": "Difficulty",
+            "default": "medium"
+          },
+          "source_type": {
+            "type": "string",
+            "title": "Source Type",
+            "default": "trusted_external"
+          },
+          "source_title": {
+            "type": "string",
+            "title": "Source Title",
+            "default": "Authoritative Sources"
+          }
+        },
+        "type": "object",
+        "required": [
+          "question_id",
+          "concept",
+          "kind",
+          "prompt"
+        ],
+        "title": "AssessmentQuestionModel"
+      },
+      "AssessmentSubmitRequest": {
+        "properties": {
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Student Id"
+          },
+          "answers": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Answers"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "default": "en"
+          }
+        },
+        "type": "object",
+        "required": [
+          "answers"
+        ],
+        "title": "AssessmentSubmitRequest"
+      },
+      "AssessmentSubmitResponse": {
+        "properties": {
+          "assessment_id": {
+            "type": "string",
+            "title": "Assessment Id"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "concept_mastery": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Concept Mastery"
+          },
+          "weak_concepts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Weak Concepts"
+          },
+          "unknown_concepts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Unknown Concepts"
+          },
+          "strengths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Strengths"
+          },
+          "recommendations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Recommendations"
+          },
+          "feedback_per_question": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Feedback Per Question"
+          }
+        },
+        "type": "object",
+        "required": [
+          "assessment_id",
+          "score",
+          "concept_mastery",
+          "weak_concepts",
+          "unknown_concepts",
+          "strengths",
+          "recommendations"
+        ],
+        "title": "AssessmentSubmitResponse"
+      },
+      "Body_upload_material_materials_upload_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "File"
+          },
+          "course": {
+            "type": "string",
+            "title": "Course",
+            "default": "General"
+          },
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Student Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_upload_material_materials_upload_post"
+      },
+      "Body_voice_question_tutor_voice_post": {
+        "properties": {
+          "file": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File"
+          },
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Student Id"
+          },
+          "course_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Course Id",
+            "default": "General"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "default": "en"
+          }
+        },
+        "type": "object",
+        "title": "Body_voice_question_tutor_voice_post"
+      },
+      "CapabilitiesResponse": {
+        "properties": {
+          "active_providers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Active Providers"
+          },
+          "mock_providers": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Mock Providers"
+          },
+          "multi_provider_mode": {
+            "type": "boolean",
+            "title": "Multi Provider Mode",
+            "default": false
+          },
+          "content_types": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Content Types"
+          },
+          "unsupported_without_multimedia_provider": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Unsupported Without Multimedia Provider"
+          },
+          "languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Languages"
+          },
+          "ocr": {
+            "type": "boolean",
+            "title": "Ocr",
+            "default": false
+          },
+          "realtime_voice": {
+            "type": "boolean",
+            "title": "Realtime Voice",
+            "default": false
+          },
+          "neural_embeddings": {
+            "type": "boolean",
+            "title": "Neural Embeddings",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "CapabilitiesResponse"
+      },
+      "CitationModel": {
+        "properties": {
+          "citation_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Citation Id"
+          },
+          "chunk_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chunk Id"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "source_type": {
+            "type": "string",
+            "title": "Source Type",
+            "default": "trusted_external"
+          },
+          "authority": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Authority",
+            "default": "university"
+          },
+          "trust_score": {
+            "type": "number",
+            "title": "Trust Score",
+            "default": 1.0
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          },
+          "page": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Page"
+          },
+          "excerpt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Excerpt"
+          },
+          "title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Title"
+          }
+        },
+        "type": "object",
+        "required": [
+          "source"
+        ],
+        "title": "CitationModel"
+      },
+      "GeneratedResourceModel": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content"
+          },
+          "path": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Path"
+          },
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename"
+          },
+          "download_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Download Url"
+          },
+          "mime_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mime Type"
+          },
+          "sources": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "source_type": {
+            "type": "string",
+            "title": "Source Type",
+            "default": "trusted_external"
+          },
+          "learner_state": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Learner State"
+          },
+          "teaching_strategy": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Teaching Strategy"
+          },
+          "evidence_limitation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Evidence Limitation"
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Message"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type",
+          "kind"
+        ],
+        "title": "GeneratedResourceModel"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "ok"
+          },
+          "ai_status": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Ai Status"
+          }
+        },
+        "type": "object",
+        "required": [
+          "ai_status"
+        ],
+        "title": "HealthResponse"
+      },
+      "LearningStateResponse": {
+        "properties": {
+          "profile": {
+            "$ref": "#/components/schemas/StudentProfileData"
+          },
+          "next_action": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NextBestActionData"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "study_plan": {
+            "items": {
+              "$ref": "#/components/schemas/StudyPlanItem"
+            },
+            "type": "array",
+            "title": "Study Plan"
+          },
+          "review_queue": {
+            "items": {
+              "$ref": "#/components/schemas/SpacedReviewItem"
+            },
+            "type": "array",
+            "title": "Review Queue"
+          },
+          "learning_history": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Learning History"
+          }
+        },
+        "type": "object",
+        "required": [
+          "profile"
+        ],
+        "title": "LearningStateResponse"
+      },
+      "MaterialModel": {
+        "properties": {
+          "document_id": {
+            "type": "string",
+            "title": "Document Id"
+          },
+          "filename": {
+            "type": "string",
+            "title": "Filename"
+          },
+          "course": {
+            "type": "string",
+            "title": "Course"
+          },
+          "upload_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Upload Date"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "indexed"
+          },
+          "chunk_count": {
+            "type": "integer",
+            "title": "Chunk Count",
+            "default": 1
+          },
+          "source_type": {
+            "type": "string",
+            "title": "Source Type",
+            "default": "student_upload"
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_id",
+          "filename",
+          "course"
+        ],
+        "title": "MaterialModel"
+      },
+      "MaterialUploadResponse": {
+        "properties": {
+          "document_id": {
+            "type": "string",
+            "title": "Document Id"
+          },
+          "filename": {
+            "type": "string",
+            "title": "Filename"
+          },
+          "course": {
+            "type": "string",
+            "title": "Course"
+          },
+          "chunk_count": {
+            "type": "integer",
+            "title": "Chunk Count"
+          },
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "default": "indexed"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "default": "File successfully uploaded and indexed into knowledge base."
+          }
+        },
+        "type": "object",
+        "required": [
+          "document_id",
+          "filename",
+          "course",
+          "chunk_count"
+        ],
+        "title": "MaterialUploadResponse"
+      },
+      "MaterialsListResponse": {
+        "properties": {
+          "materials": {
+            "items": {
+              "$ref": "#/components/schemas/MaterialModel"
+            },
+            "type": "array",
+            "title": "Materials"
+          }
+        },
+        "type": "object",
+        "title": "MaterialsListResponse"
+      },
+      "NextBestActionData": {
+        "properties": {
+          "action": {
+            "type": "string",
+            "title": "Action"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "target_concepts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Target Concepts"
+          },
+          "strategy": {
+            "type": "string",
+            "title": "Strategy"
+          },
+          "recommended_resources": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Recommended Resources"
+          },
+          "priority": {
+            "type": "string",
+            "title": "Priority"
+          },
+          "triggering_evidence": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Triggering Evidence"
+          }
+        },
+        "type": "object",
+        "required": [
+          "action",
+          "reason",
+          "strategy",
+          "priority"
+        ],
+        "title": "NextBestActionData"
+      },
+      "SpacedReviewItem": {
+        "properties": {
+          "concept": {
+            "type": "string",
+            "title": "Concept"
+          },
+          "due_date": {
+            "type": "string",
+            "title": "Due Date"
+          },
+          "interval_days": {
+            "type": "number",
+            "title": "Interval Days"
+          },
+          "repetition": {
+            "type": "integer",
+            "title": "Repetition"
+          },
+          "ease_factor": {
+            "type": "number",
+            "title": "Ease Factor"
+          },
+          "last_reviewed": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Reviewed"
+          },
+          "mastery": {
+            "type": "number",
+            "title": "Mastery",
+            "default": 0.0
+          }
+        },
+        "type": "object",
+        "required": [
+          "concept",
+          "due_date",
+          "interval_days",
+          "repetition",
+          "ease_factor"
+        ],
+        "title": "SpacedReviewItem"
+      },
+      "SpacedReviewRequest": {
+        "properties": {
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Student Id"
+          },
+          "concept": {
+            "type": "string",
+            "title": "Concept"
+          },
+          "remembered": {
+            "type": "boolean",
+            "title": "Remembered"
+          }
+        },
+        "type": "object",
+        "required": [
+          "concept",
+          "remembered"
+        ],
+        "title": "SpacedReviewRequest"
+      },
+      "SpacedReviewResponse": {
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "title": "Success"
+          },
+          "concept": {
+            "type": "string",
+            "title": "Concept"
+          },
+          "remembered": {
+            "type": "boolean",
+            "title": "Remembered"
+          },
+          "next_review_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Next Review Date"
+          },
+          "interval_days": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Interval Days"
+          },
+          "mastery": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mastery"
+          }
+        },
+        "type": "object",
+        "required": [
+          "success",
+          "concept",
+          "remembered"
+        ],
+        "title": "SpacedReviewResponse"
+      },
+      "StudentPreferencesUpdate": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "course": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Course"
+          },
+          "preferred_language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Preferred Language"
+          },
+          "learning_preference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Learning Preference"
+          }
+        },
+        "type": "object",
+        "title": "StudentPreferencesUpdate"
+      },
+      "StudentProfileData": {
+        "properties": {
+          "student_id": {
+            "type": "string",
+            "title": "Student Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "course": {
+            "type": "string",
+            "title": "Course"
+          },
+          "preferred_language": {
+            "type": "string",
+            "title": "Preferred Language"
+          },
+          "learning_preference": {
+            "type": "string",
+            "title": "Learning Preference"
+          },
+          "concept_mastery": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Concept Mastery"
+          },
+          "weak_concepts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Weak Concepts"
+          },
+          "unknown_concepts": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Unknown Concepts"
+          },
+          "strengths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Strengths"
+          },
+          "misconceptions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Misconceptions"
+          },
+          "prerequisite_gaps": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Prerequisite Gaps"
+          },
+          "recent_topics": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Recent Topics"
+          }
+        },
+        "type": "object",
+        "required": [
+          "student_id",
+          "name",
+          "course",
+          "preferred_language",
+          "learning_preference"
+        ],
+        "title": "StudentProfileData"
+      },
+      "StudyPlanItem": {
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "concept": {
+            "type": "string",
+            "title": "Concept"
+          },
+          "priority": {
+            "type": "string",
+            "title": "Priority"
+          },
+          "reason": {
+            "type": "string",
+            "title": "Reason"
+          },
+          "recommended_actions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Recommended Actions"
+          },
+          "completed": {
+            "type": "boolean",
+            "title": "Completed",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "title",
+          "concept",
+          "priority",
+          "reason"
+        ],
+        "title": "StudyPlanItem"
+      },
+      "StudyToolsGenerateRequest": {
+        "properties": {
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Student Id"
+          },
+          "topic": {
+            "type": "string",
+            "title": "Topic"
+          },
+          "kinds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Kinds"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "default": "en"
+          },
+          "document_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Ids"
+          }
+        },
+        "type": "object",
+        "required": [
+          "topic",
+          "kinds"
+        ],
+        "title": "StudyToolsGenerateRequest"
+      },
+      "StudyToolsGenerateResponse": {
+        "properties": {
+          "topic": {
+            "type": "string",
+            "title": "Topic"
+          },
+          "resources": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/GeneratedResourceModel"
+            },
+            "type": "object",
+            "title": "Resources"
+          }
+        },
+        "type": "object",
+        "required": [
+          "topic",
+          "resources"
+        ],
+        "title": "StudyToolsGenerateResponse"
+      },
+      "TutorChatRequest": {
+        "properties": {
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Student Id"
+          },
+          "course_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Course Id",
+            "default": "General"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language",
+            "default": "en"
+          },
+          "document_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Ids"
+          },
+          "tutoring_style": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tutoring Style",
+            "default": "direct"
+          },
+          "session_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Session Id",
+            "default": "web-session"
+          },
+          "chat_history": {
+            "anyOf": [
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chat History"
+          }
+        },
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "title": "TutorChatRequest"
+      },
+      "TutorChatResponse": {
+        "properties": {
+          "answer": {
+            "type": "string",
+            "title": "Answer"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/CitationModel"
+            },
+            "type": "array",
+            "title": "Evidence"
+          },
+          "abstained": {
+            "type": "boolean",
+            "title": "Abstained",
+            "default": false
+          },
+          "search_state": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Search State"
+          },
+          "source_type": {
+            "type": "string",
+            "title": "Source Type",
+            "default": "trusted_external"
+          },
+          "evidence_limitation": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Evidence Limitation"
+          },
+          "diagnostics": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Diagnostics"
+          }
+        },
+        "type": "object",
+        "required": [
+          "answer"
+        ],
+        "title": "TutorChatResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
