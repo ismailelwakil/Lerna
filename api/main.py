@@ -35,6 +35,7 @@ from api.routes import (
     assessments_router,
     spaced_repetition_router,
     artifacts_router,
+    platform_router,
 )
 
 app = FastAPI(
@@ -78,6 +79,7 @@ app.include_router(study_tools_router)
 app.include_router(assessments_router)
 app.include_router(spaced_repetition_router)
 app.include_router(artifacts_router)
+app.include_router(platform_router)
 
 
 @app.get("/", tags=["System"])
