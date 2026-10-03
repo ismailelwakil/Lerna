@@ -22,6 +22,12 @@ import time
 from typing import Any
 
 from src.core.exceptions import ProviderError
+from src.platform.sanad_prompts import (
+    SANAD_ADAPT_PROMPT,
+    SANAD_LESSON_PROMPT,
+    SANAD_PLAN_PROMPT,
+    SANAD_UNDERSTAND_PROMPT,
+)
 
 LANGUAGE_NAMES = {
     "en": "English", "ar": "Arabic", "fr": "French", "sw": "Swahili", "ha": "Hausa",
@@ -74,6 +80,11 @@ TASKS: dict[str, tuple[str | None, tuple[str, ...]]] = {
     "plan_trusted_source_discovery": (None, ()),
     "deck_outline": (None, ()),
     "diagram_spec": (None, ()),
+    # Sanad study agent (LeRna-owned prompts)
+    "sanad_understand": (SANAD_UNDERSTAND_PROMPT, ("intent", "reply")),
+    "sanad_plan": (SANAD_PLAN_PROMPT, ("summary", "days")),
+    "sanad_adapt": (SANAD_ADAPT_PROMPT, ("message", "days")),
+    "sanad_lesson": (SANAD_LESSON_PROMPT, ("explanation",)),
 }
 GENERATE_RESOURCE = re.compile(r"^generate_[a-z_]{2,40}$")
 
