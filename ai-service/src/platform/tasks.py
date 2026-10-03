@@ -81,7 +81,7 @@ TASKS: dict[str, tuple[str | None, tuple[str, ...]]] = {
     "plan_trusted_source_discovery": (None, ()),
     "deck_outline": (None, ()),
     "diagram_spec": (None, ()),
-    # Sanad study agent (LeRna-owned prompts)
+    # Plany study agent (LeRna-owned prompts)
     "sanad_understand": (SANAD_UNDERSTAND_PROMPT, ("intent", "reply")),
     "sanad_plan": (SANAD_PLAN_PROMPT, ("summary", "days")),
     "sanad_adapt": (SANAD_ADAPT_PROMPT, ("message", "days")),
