@@ -1,0 +1,29 @@
+{
+  "student": {
+    "student_id": "genai-6abb31e844c728ea216dd6b5",
+    "name": "Sara Mitchell",
+    "course": "General",
+    "preferred_language": "en",
+    "learning_preference": "step-by-step"
+  },
+  "concept_mastery": {},
+  "weak_concepts": [],
+  "prerequisite_gaps": [],
+  "misconceptions": [],
+  "resolved_misconceptions": [],
+  "strengths": [],
+  "unknown_concepts": [],
+  "assessment_history": [],
+  "learning_history": [],
+  "recent_topics": [],
+  "generated_resources": [],
+  "review_queue": [],
+  "study_plan": [],
+  "conversation_history": [],
+  "learning_goal": null,
+  "concept_confidence": {},
+  "concept_exposure_count": {},
+  "concept_evidence_count": {},
+  "last_assessed_at": {},
+  "performance_trend": []
+}
