@@ -26,6 +26,7 @@ from src.platform.sanad_prompts import (
     SANAD_ADAPT_PROMPT,
     SANAD_LESSON_PROMPT,
     SANAD_PLAN_PROMPT,
+    SANAD_REMINDER_PROMPT,
     SANAD_UNDERSTAND_PROMPT,
 )
 
@@ -85,6 +86,7 @@ TASKS: dict[str, tuple[str | None, tuple[str, ...]]] = {
     "sanad_plan": (SANAD_PLAN_PROMPT, ("summary", "days")),
     "sanad_adapt": (SANAD_ADAPT_PROMPT, ("message", "days")),
     "sanad_lesson": (SANAD_LESSON_PROMPT, ("explanation",)),
+    "sanad_reminder": (SANAD_REMINDER_PROMPT, ("line",)),
 }
 GENERATE_RESOURCE = re.compile(r"^generate_[a-z_]{2,40}$")
 
